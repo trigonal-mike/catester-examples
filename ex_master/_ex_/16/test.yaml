@@ -1,0 +1,64 @@
+type: python
+name: Python Test Suite
+description: Checks subtests and graphics
+version: '1.0'
+properties:
+  failureMessage: Some or all tests failed
+  successMessage: Congratulations! All tests passed
+  qualification: verifyEqual
+  relativeTolerance: 1.0e-12
+  absoluteTolerance: 0.0
+  allowedOccuranceRange:
+  - 0
+  - 0
+  occuranceType: NAME
+  typeCheck: true
+  shapeCheck: true
+  timeout: 180.0
+  tests:
+  - type: structural
+    name: structural_test
+    entryPoint: ex.py
+    inputAnswers:
+    - '12'
+    file: ex.py
+    tests:
+    - allowedOccuranceRange:
+      - 1
+      - 1
+      name: eye
+    - allowedOccuranceRange:
+      - 1
+      - 2
+      name: diag
+  - type: variable
+    name: test1
+    entryPoint: ex.py
+    inputAnswers:
+    - '12'
+    tests:
+    - name: n
+    - name: A
+    - name: b
+    - name: check
+    - name: error_limit
+  - type: variable
+    name: test2
+    entryPoint: ex.py
+    inputAnswers:
+    - '7.2'
+    tests:
+    - name: n
+    - name: A
+    - name: b
+    - name: check
+    - name: error_limit
+  - type: stdout
+    name: outtest
+    entryPoint: ex.py
+    inputAnswers:
+    - '12'
+    tests:
+    - qualification: contains
+      name: stdout
+      pattern: Check successful

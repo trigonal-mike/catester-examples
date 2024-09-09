@@ -1,0 +1,48 @@
+type: python
+name: Python Test Suite
+description: Checks subtests and graphics
+version: '1.0'
+properties:
+  failureMessage: Some or all tests failed
+  successMessage: Congratulations! All tests passed
+  qualification: verifyEqual
+  relativeTolerance: 1.0e-12
+  absoluteTolerance: 0.0
+  allowedOccuranceRange:
+  - 0
+  - 0
+  occuranceType: NAME
+  typeCheck: true
+  shapeCheck: true
+  timeout: 180.0
+  tests:
+  - type: variable
+    name: random1
+    entryPoint: Random.py
+    id: '1'
+    tests:
+    - name: var1
+    - name: var2
+    - name: var3
+    - name: var4
+    - name: var5
+    - name: var6[1]
+    - name: var7[0][1]
+    - name: var7[0][2]
+    - name: var8
+  - type: variable
+    name: random2
+    successDependency:
+    - '1'
+    entryPoint: Random.py
+    tests:
+    - name: var9
+  - type: variable
+    name: random3
+    entryPoint: Random.py
+    setUpCode:
+    - import random
+    - b = random.randint(0, 10)
+    tests:
+    - absoluteTolerance: 0.0
+      name: b

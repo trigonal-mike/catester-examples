@@ -1,0 +1,52 @@
+type: python
+name: Python Test Suite
+description: Checks subtests and graphics
+version: '1.0'
+properties:
+  failureMessage: Some or all tests failed
+  successMessage: Congratulations! All tests passed
+  qualification: verifyEqual
+  relativeTolerance: 1.0e-12
+  absoluteTolerance: 0.0
+  allowedOccuranceRange:
+  - 0
+  - 0
+  occuranceType: NAME
+  typeCheck: true
+  shapeCheck: true
+  timeout: 180.0
+  tests:
+  - type: variable
+    name: startvalues
+    entryPoint: basis3.py
+    id: startvalues
+    tests:
+    - name: x_a
+    - name: x_e
+    - name: x_n
+  - type: variable
+    name: vectors
+    successDependency:
+    - startvalues
+    entryPoint: basis3.py
+    id: vectors
+    tests:
+    - name: x
+    - name: f1
+    - name: f2
+    - name: f3
+  - storeGraphicsArtifacts: false
+    type: graphics
+    name: plot
+    entryPoint: basis3.py
+    tests:
+    - name: figure(1).axes[0].lines[0].get_color()
+    - name: figure(1).axes[0].lines[1]._color
+    - name: figure(1).axes[0].lines[2]._color
+    - name: figure(1).axes[0].get_xlabel()
+    - name: figure(1).axes[0].get_ylabel()
+    - name: figure(1).axes[0].get_xlim()
+    - name: figure(1).axes[0].get_ylim()
+    - name: figure(1).axes[0].legend().get_texts()[0].get_text()
+    - name: figure(1).axes[0].legend().get_texts()[1].get_text()
+    - name: figure(1).axes[0].legend().get_texts()[2].get_text()

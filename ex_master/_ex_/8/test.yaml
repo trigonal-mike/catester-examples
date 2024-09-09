@@ -1,0 +1,27 @@
+type: python
+name: Python Test Suite
+description: Checks subtests and graphics
+version: '1.0'
+properties:
+  failureMessage: Some or all tests failed
+  successMessage: Congratulations! All tests passed
+  qualification: verifyEqual
+  relativeTolerance: 1.0e-12
+  absoluteTolerance: 0.0
+  allowedOccuranceRange:
+  - 0
+  - 0
+  occuranceType: NAME
+  typeCheck: true
+  shapeCheck: true
+  timeout: 180.0
+  tests:
+  - type: graphics
+    name: graphics-test
+    entryPoint: 8.py
+    setUpCode:
+    - x3, x4, r3, r4=quadgltest()
+    tests:
+    - qualification: regexp
+      name: figure(1).axes[0].lines[0]._color
+      pattern: ^(blue|b|\(0.0, 0.0, 1.0, 1\))$

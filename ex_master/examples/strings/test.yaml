@@ -1,0 +1,41 @@
+type: python
+name: Python Test Suite
+description: Checks subtests and graphics
+version: '1.0'
+properties:
+  failureMessage: Some or all tests failed
+  successMessage: Congratulations! All tests passed
+  qualification: verifyEqual
+  relativeTolerance: 1.0e-12
+  absoluteTolerance: 0.0
+  allowedOccuranceRange:
+  - 0
+  - 0
+  occuranceType: NAME
+  typeCheck: true
+  shapeCheck: true
+  timeout: 180.0
+  tests:
+  - type: variable
+    name: variables unit1
+    entryPoint: Strings.py
+    tests:
+    - qualification: matches
+      name: var1
+      pattern: _x1234567890
+    - qualification: contains
+      name: var1
+      pattern: _x1234567890
+    - qualification: startsWith
+      name: var1
+      pattern: _x123
+    - qualification: endsWith
+      name: var1
+      pattern: '890'
+    - qualification: count
+      name: var1
+      pattern: _
+      countRequirement: 1
+    - qualification: regexp
+      name: var1
+      pattern: ^.*x.*$

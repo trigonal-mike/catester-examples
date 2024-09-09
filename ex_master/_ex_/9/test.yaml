@@ -1,0 +1,27 @@
+type: python
+name: Python Test Suite
+description: Checks subtests and graphics
+version: '1.0'
+properties:
+  failureMessage: Some or all tests failed
+  successMessage: Congratulations! All tests passed
+  qualification: verifyEqual
+  relativeTolerance: 1.0e-12
+  absoluteTolerance: 0.0
+  allowedOccuranceRange:
+  - 0
+  - 0
+  occuranceType: NAME
+  typeCheck: true
+  shapeCheck: true
+  timeout: 180.0
+  tests:
+  - type: variable
+    name: test
+    entryPoint: 9.py
+    setUpCode:
+    - "if x == 'red':\n y = 'r'\nelif x == (1,1,10):\n y= 'r'\nelif x == 'r':\n y=\
+      \ 'r'"
+    tests:
+    - name: y
+      value: r

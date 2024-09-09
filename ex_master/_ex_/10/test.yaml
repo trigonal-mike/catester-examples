@@ -1,0 +1,63 @@
+type: python
+name: Python Test Suite
+description: Checks subtests and graphics
+version: '1.0'
+properties:
+  failureMessage: Some or all tests failed
+  successMessage: Congratulations! All tests passed
+  qualification: verifyEqual
+  relativeTolerance: 1.0e-12
+  absoluteTolerance: 0.0
+  allowedOccuranceRange:
+  - 0
+  - 0
+  occuranceType: NAME
+  typeCheck: true
+  shapeCheck: true
+  timeout: 180.0
+  tests:
+  - type: stdout
+    name: test1
+    entryPoint: check_password.py
+    setUpCode:
+    - check_password('abc')
+    tests:
+    - qualification: regexp
+      name: stdout
+      pattern: .*Passwort zu kurz!.*
+  - type: stdout
+    name: test2
+    entryPoint: check_password.py
+    setUpCode:
+    - check_password('neuespasswort')
+    tests:
+    - qualification: startsWith
+      name: stdout
+      pattern: Passwort enthält keine Zahl!
+  - type: stdout
+    name: test3
+    entryPoint: check_password.py
+    setUpCode:
+    - check_password('neuespasswort2')
+    tests:
+    - qualification: startsWith
+      name: stdout
+      pattern: Passwort enthält kein Sonderzeichen!
+  - type: stdout
+    name: test4
+    entryPoint: check_password.py
+    setUpCode:
+    - check_password('neuespasswort!2')
+    tests:
+    - qualification: startsWith
+      name: stdout
+      pattern: Passwort enthält keine Grossbuchstaben!
+  - type: stdout
+    name: test5
+    entryPoint: check_password.py
+    setUpCode:
+    - check_password('neuesPasswort!2')
+    tests:
+    - qualification: startsWith
+      name: stdout
+      pattern: Starkes Passwort

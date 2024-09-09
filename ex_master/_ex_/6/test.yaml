@@ -1,0 +1,34 @@
+type: python
+name: Python Test Suite
+description: Checks subtests and graphics
+version: '1.0'
+properties:
+  failureMessage: Some or all tests failed
+  successMessage: Congratulations! All tests passed
+  qualification: verifyEqual
+  relativeTolerance: 1.0e-12
+  absoluteTolerance: 0.0
+  allowedOccuranceRange:
+  - 0
+  - 0
+  occuranceType: NAME
+  typeCheck: true
+  shapeCheck: true
+  timeout: 180.0
+  tests:
+  - type: variable
+    name: ostern1
+    entryPoint: x.py
+    inputAnswers:
+    - '2024'
+    tests:
+    - name: Ostersonntag
+      value: 31
+    - name: Monat
+  - type: stdout
+    name: ostern2
+    entryPoint: x.py
+    tests:
+    - qualification: startsWith
+      name: stdout
+      pattern: Der Ostersonntag

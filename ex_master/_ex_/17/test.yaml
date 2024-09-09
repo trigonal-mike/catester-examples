@@ -1,0 +1,46 @@
+type: python
+name: Python Test Suite
+description: Checks subtests and graphics
+version: '1.0'
+properties:
+  failureMessage: Some or all tests failed
+  successMessage: Congratulations! All tests passed
+  qualification: verifyEqual
+  relativeTolerance: 1.0e-12
+  absoluteTolerance: 0.0
+  allowedOccuranceRange:
+  - 0
+  - 0
+  occuranceType: NAME
+  typeCheck: true
+  shapeCheck: true
+  timeout: 180.0
+  tests:
+  - type: variable
+    name: C1
+    entryPoint: planets_class.py
+    setUpCode:
+    - p10=Planet('Neueerde', 7.612e24, 15000, 745.1, 180.2)
+    tests:
+    - name: p10.calc_avg_density()
+    - name: p10.name
+    - name: p10.mass
+    - name: p10.diameter
+    - name: p10.orbital_period_around_sun
+    - name: p10.distance_from_sun
+  - type: variable
+    name: C2
+    entryPoint: planets_class.py
+    tests:
+    - name: earth
+    - name: earth.calc_avg_density()
+    - name: earth.name
+    - name: earth.mass
+    - name: earth.diameter
+    - name: earth.orbital_period_around_sun
+    - name: earth.distance_from_sun
+  - type: variable
+    name: dict_test
+    entryPoint: planets_dict.py
+    tests:
+    - name: planets

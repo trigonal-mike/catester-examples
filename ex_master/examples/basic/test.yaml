@@ -1,0 +1,38 @@
+type: python
+name: Python Test Suite
+description: Checks subtests and graphics
+version: '1.0'
+properties:
+  failureMessage: Some/all tests failed...
+  successMessage: Congratulations! All tests passed
+  qualification: verifyEqual
+  relativeTolerance: 1.0e-12
+  absoluteTolerance: 1.0e-06
+  allowedOccuranceRange:
+  - 0
+  - 0
+  occuranceType: NAME
+  typeCheck: true
+  shapeCheck: true
+  timeout: 180.0
+  tests:
+  - relativeTolerance: 0.1
+    absoluteTolerance: 0.001
+    type: variable
+    name: Test Basic
+    entryPoint: Basic.py
+    tests:
+    - relativeTolerance: 1.0e-33
+      absoluteTolerance: 0.0
+      name: var1
+    - name: var2
+    - name: var3
+    - name: var3
+      evalString: not not not False
+    - name: var4
+    - name: var5
+    - name: var6
+    - name: var7
+    - name: var8
+      evalString: round((1+2+3+0.001)*1)
+    - name: var9[0]

@@ -1,0 +1,147 @@
+type: python
+name: Python Test Suite
+description: Checks subtests and graphics
+version: '1.0'
+properties:
+  failureMessage: Some or all tests failed
+  successMessage: Congratulations! All tests passed
+  qualification: verifyEqual
+  relativeTolerance: 1.0e-12
+  absoluteTolerance: 0.0
+  allowedOccuranceRange:
+  - 0
+  - 0
+  occuranceType: NAME
+  typeCheck: true
+  shapeCheck: true
+  timeout: 180.0
+  tests:
+  - type: variable
+    name: f1
+    entryPoint: pi_int.py
+    setUpCode:
+    - t_f1=fun_norm(4)
+    tests:
+    - name: t_f1
+  - type: variable
+    name: f2
+    entryPoint: pi_int.py
+    setUpCode:
+    - t_f2=fun_gamma(4)
+    tests:
+    - name: t_f2
+  - type: variable
+    name: f3
+    entryPoint: pi_int.py
+    setUpCode:
+    - t_f3=fun_sin(4)
+    tests:
+    - name: t_f3
+  - type: variable
+    name: variables
+    entryPoint: pi_int.py
+    tests:
+    - name: max_iter
+    - name: N
+    - name: iteration_steps
+    - name: pi_norm
+    - name: pi_gamma
+    - name: pi_sin
+  - type: graphics
+    name: matplot figures
+    entryPoint: pi_int.py
+    tests:
+    - name: figure(1).axes[0].lines[0].properties()['xydata']
+    - name: figure(1).axes[0].lines[1].properties()['xydata']
+    - name: figure(1).axes[0].lines[2].properties()['xydata']
+    - name: figure(1).axes[0].lines[3].properties()['xydata']
+    - name: figure(1).axes[0].lines[0]._linestyle
+    - name: figure(1).axes[0].lines[1]._linestyle
+    - name: figure(1).axes[0].lines[2]._linestyle
+    - name: figure(1).axes[0].lines[3]._linestyle
+    - name: figure(1).axes[0].get_ylabel()
+    - name: figure(1).axes[0].get_title()
+    - name: figure(1).axes[0].get_xlim()
+    - name: figure(1).axes[0].lines[0]._linestyle
+    - name: figure(1).axes[0].lines[1]._linestyle
+    - name: figure(1).axes[0].lines[2]._linestyle
+    - name: figure(1).axes[0].lines[3]._linestyle
+    - name: figure(1).axes[0].get_legend().get_texts()[0].get_text()
+    - name: figure(1).axes[0].get_legend().get_texts()[1].get_text()
+    - name: figure(1).axes[0].get_legend().get_texts()[2].get_text()
+    - name: figure(1).axes[0].get_legend().get_texts()[3].get_text()
+    - name: figure(1).axes[0].get_legend()._loc
+    - name: figure(1).axes[1].lines[0].properties()['xydata']
+    - name: figure(1).axes[1].lines[1].properties()['xydata']
+    - name: figure(1).axes[1].lines[2].properties()['xydata']
+    - name: figure(1).axes[1].lines[0]._linestyle
+    - name: figure(1).axes[1].lines[1]._linestyle
+    - name: figure(1).axes[1].lines[2]._linestyle
+    - name: figure(1).axes[1].get_xlabel()
+    - name: figure(1).axes[1].get_ylabel()
+    - name: figure(1).axes[1].get_title()
+    - name: figure(1).axes[1].get_xlim()
+    - name: figure(1).axes[1].get_ylim()
+    - name: figure(1).axes[1].lines[0]._linestyle
+    - name: figure(1).axes[1].lines[1]._linestyle
+    - name: figure(1).axes[1].lines[2]._linestyle
+    - name: figure(1).axes[1].get_legend().get_texts()[0].get_text()
+    - name: figure(1).axes[1].get_legend().get_texts()[1].get_text()
+    - name: figure(1).axes[1].get_legend().get_texts()[2].get_text()
+    - name: figure(1).axes[1].get_legend()._loc
+  - type: graphics
+    name: color00
+    entryPoint: pi_int.py
+    tests:
+    - qualification: regexp
+      name: figure(1).axes[0].lines[0]._color
+      pattern: ^(black|k|\(0\.0, 0\.0, 0\.0, 1\)|\(0, 0, 0, 1\)|\(0, 0, 0\)|\(0\.0,
+        0\.0, 0\.0\)|#000000)$
+  - type: graphics
+    name: color01
+    entryPoint: pi_int.py
+    tests:
+    - qualification: regexp
+      name: figure(1).axes[0].lines[1]._color
+      pattern: ^(red|r|\(1\.0, 0\.0, 0\.0, 1\)|\(255, 0, 0, 1\)|\(255, 0, 0\)|\(1\.0,
+        0\.0, 0\.0\)|#FF0000)$
+  - type: graphics
+    name: color02
+    entryPoint: pi_int.py
+    tests:
+    - qualification: regexp
+      name: figure(1).axes[0].lines[2]._color
+      pattern: ^(blue|b|\(0.0, 0.0, 1.0, 1\)|\(0, 0, 1, 1\)|\(0, 0, 1\)|\(0.0, 0.0,
+        1.0\)|#0000FF)$
+  - type: graphics
+    name: color03
+    entryPoint: pi_int.py
+    tests:
+    - qualification: regexp
+      name: figure(1).axes[0].lines[3]._color
+      pattern: ^(green|g|\(0\.0, 1\.0, 0\.0, 1\)|\(0, 255, 0, 1\)|\(0, 255, 0\)|\(0\.0,
+        1\.0, 0\.0\)|#00FF00)$
+  - type: graphics
+    name: color10
+    entryPoint: pi_int.py
+    tests:
+    - qualification: regexp
+      name: figure(1).axes[1].lines[0]._color
+      pattern: ^(red|r|\(1\.0, 0\.0, 0\.0, 1\)|\(255, 0, 0, 1\)|\(255, 0, 0\)|\(1\.0,
+        0\.0, 0\.0\)|#FF0000)$
+  - type: graphics
+    name: color11
+    entryPoint: pi_int.py
+    tests:
+    - qualification: regexp
+      name: figure(1).axes[1].lines[1]._color
+      pattern: ^(blue|b|\(0.0, 0.0, 1.0, 1\)|\(0, 0, 1, 1\)|\(0, 0, 1\)|\(0.0, 0.0,
+        1.0\)|#0000FF)$
+  - type: graphics
+    name: color12
+    entryPoint: pi_int.py
+    tests:
+    - qualification: regexp
+      name: figure(1).axes[1].lines[2]._color
+      pattern: ^(green|g|\(0\.0, 1\.0, 0\.0, 1\)|\(0, 255, 0, 1\)|\(0, 255, 0\)|\(0\.0,
+        1\.0, 0\.0\)|#00FF00)$

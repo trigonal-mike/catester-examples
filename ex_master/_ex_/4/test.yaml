@@ -1,0 +1,63 @@
+type: python
+name: Python Test Suite
+description: Checks subtests and graphics
+version: '1.0'
+properties:
+  failureMessage: Some or all tests failed
+  successMessage: Congratulations! All tests passed
+  qualification: verifyEqual
+  relativeTolerance: 1.0e-12
+  absoluteTolerance: 0.0
+  allowedOccuranceRange:
+  - 0
+  - 0
+  occuranceType: NAME
+  typeCheck: true
+  shapeCheck: true
+  timeout: 180.0
+  tests:
+  - type: variable
+    name: values
+    entryPoint: pskript.py
+    id: values
+    tests:
+    - name: x_0
+    - name: s
+    - name: x_a
+    - name: x_e
+    - name: x_n
+  - type: variable
+    name: vectors
+    entryPoint: pskript.py
+    id: vectors
+    tests:
+    - name: x
+    - name: g
+    - name: h
+  - storeGraphicsArtifacts: false
+    type: graphics
+    name: figure
+    entryPoint: pskript.py
+    tests:
+    - name: figure(1).axes[0].lines[0].properties()['xydata']
+    - name: figure(1).axes[0].lines[0]._color
+    - name: figure(1).axes[0].lines[1].properties()['xydata']
+    - name: figure(1).axes[0].lines[1]._color
+    - name: figure(1).axes[0].get_xlabel()
+    - name: figure(1).axes[0].get_ylabel()
+    - name: figure(1).axes[0].legend().get_texts()[0].get_text()
+    - name: figure(1).axes[0].legend().get_texts()[1].get_text()
+  - type: exist
+    name: existance gauss
+    entryPoint: pskript.py
+    id: gauss
+    file: sgauss.py
+    tests:
+    - name: '-'
+  - type: exist
+    name: existance secansh
+    entryPoint: pskript.py
+    id: secansh
+    file: secansh.py
+    tests:
+    - name: '-'
