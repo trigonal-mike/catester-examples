@@ -20,7 +20,7 @@ properties:
     name: test1
     entryPoint: ex.py
     setUpCode:
-    - check_password('dfs')
+    - check_password('1234567890')
     tests:
     - qualification: startsWith
       name: stdout

@@ -5,7 +5,7 @@ def check_password(x):
         print("ok")
 
 #$STDOUTTEST test1
-#$PROPERTY setUpCode ["check_password('dfs')"]
+#$PROPERTY setUpCode ["check_password('1234567890')"]
 #$TESTVAR stdout
 #$PROPERTY qualification startsWith
 #$PROPERTY pattern "ok"
