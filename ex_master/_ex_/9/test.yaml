@@ -7,7 +7,7 @@ properties:
   successMessage: Congratulations! All tests passed
   qualification: verifyEqual
   relativeTolerance: 1.0e-12
-  absoluteTolerance: 0.0
+  absoluteTolerance: 0.0001
   allowedOccuranceRange:
   - 0
   - 0

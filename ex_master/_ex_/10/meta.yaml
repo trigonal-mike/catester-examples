@@ -1,8 +1,9 @@
 version: '1.0'
-type: ProblemSet
+kind: assignment
+type: ''
 title: Password Validator
-description: Description of the Problemset
-language: en
+description: Description of the Assignment
+language: de
 license: MIT
 authors:
 - name: NAME
@@ -23,8 +24,9 @@ keywords:
 testDependencies: []
 properties:
   studentSubmissionFiles:
-  - ./ex.py
-  - ./check_password.py
+  - ex.py
+  - check_password.py
   additionalFiles: []
   testFiles: []
   studentTemplates: []
+  executionBackendSlug: python-itp

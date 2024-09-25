@@ -1,8 +1,9 @@
 version: '1.0'
-type: ProblemSet
+kind: assignment
+type: ''
 title: Kombination von Funktionen
-description: Description of the Problemset
-language: en
+description: Description of the Assignment
+language: de
 license: MIT
 authors:
 - name: NAME
@@ -23,7 +24,8 @@ keywords:
 testDependencies: []
 properties:
   studentSubmissionFiles:
-  - ./basis3.py
+  - basis3.py
   additionalFiles: []
   testFiles: []
   studentTemplates: []
+  executionBackendSlug: python-itp

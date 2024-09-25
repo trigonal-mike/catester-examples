@@ -1,8 +1,9 @@
 version: '1.0'
-type: ProblemSet
+kind: assignment
+type: ''
 title: Objektorientierte Programmierung in Python
-description: Description of the Problemset
-language: en
+description: Description of the Assignment
+language: de
 license: MIT
 authors:
 - name: NAME
@@ -23,7 +24,8 @@ keywords:
 testDependencies: []
 properties:
   studentSubmissionFiles:
-  - ./planets_class.py
+  - planets_class.py
   additionalFiles: []
   testFiles: []
   studentTemplates: []
+  executionBackendSlug: python-itp
