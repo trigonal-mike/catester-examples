@@ -1,8 +1,9 @@
 version: '1.0'
-type: ProblemSet
-title: Title of the Problemset
-description: Description of the Problemset
-language: en
+kind: assignment
+type: ''
+title: Title of the Assignment
+description: Description of the Assignment
+language: de
 license: MIT
 authors:
 - name: NAME
@@ -23,8 +24,9 @@ keywords:
 testDependencies: []
 properties:
   studentSubmissionFiles:
-  - ./ex.py
+  - ex.py
   additionalFiles:
-  - ./dat.txt
+  - dat.txt
   testFiles: []
   studentTemplates: []
+  executionBackendSlug: python-itp

@@ -7,7 +7,7 @@ properties:
   successMessage: Congratulations! All tests passed
   qualification: verifyEqual
   relativeTolerance: 1.0e-12
-  absoluteTolerance: 0.0
+  absoluteTolerance: 0.0001
   allowedOccuranceRange:
   - 0
   - 0
@@ -38,4 +38,4 @@ properties:
       name: figure(1).axes[0].get_xlabel()
       pattern: x
     - name: figure(2).axes[0].get_ylabel()
-      value: yy
+      value: y

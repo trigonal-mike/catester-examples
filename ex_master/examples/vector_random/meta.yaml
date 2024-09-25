@@ -1,8 +1,9 @@
 version: '1.0'
-type: ProblemSet
-title: Title of the Problemset
+kind: assignment
+type: ''
+title: Title of the Assignment
 description: Erzeugen von Zufallszahlen
-language: en
+language: de
 license: MIT
 authors:
 - name: NAME
@@ -23,7 +24,8 @@ keywords:
 testDependencies: []
 properties:
   studentSubmissionFiles:
-  - ./vector_random.py
+  - vector_random.py
   additionalFiles: []
   testFiles: []
   studentTemplates: []
+  executionBackendSlug: python-itp
