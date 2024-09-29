@@ -45,6 +45,7 @@ print(f'Der Ostersonntag ist im Jahr {X} am {Ostersonntag}. {Monat}')
 #$TESTVAR Monat
 
 #$STDOUTTEST ostern2
+#$PROPERTY inputAnswers ["2024"]
 #$TESTVAR stdout
-#$PROPERTY qualification startsWith
-#$PROPERTY pattern "Der Ostersonntag"
+#$PROPERTY qualification contains
+#$PROPERTY pattern "Der Ostersonntag ist im Jahr 2024 am 31. Maerz"

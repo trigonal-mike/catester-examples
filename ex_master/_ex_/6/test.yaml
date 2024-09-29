@@ -28,7 +28,9 @@ properties:
   - type: stdout
     name: ostern2
     entryPoint: x.py
+    inputAnswers:
+    - '2024'
     tests:
-    - qualification: startsWith
+    - qualification: contains
       name: stdout
-      pattern: Der Ostersonntag
+      pattern: Der Ostersonntag ist im Jahr 2024 am 31. Maerz

@@ -1,0 +1,59 @@
+type: python
+name: Python Test Suite
+description: Checks subtests and graphics
+version: '1.0'
+properties:
+  failureMessage: Some or all tests failed
+  successMessage: Congratulations! All tests passed
+  qualification: verifyEqual
+  relativeTolerance: 1.0e-12
+  absoluteTolerance: 0.0001
+  allowedOccuranceRange:
+  - 0
+  - 0
+  occuranceType: NAME
+  typeCheck: true
+  shapeCheck: true
+  timeout: 180.0
+  tests:
+  - type: variable
+    name: stdin_stdout1
+    entryPoint: x.py
+    inputAnswers:
+    - '123'
+    tests:
+    - name: x
+      value: 123
+    - name: y
+      value: 124
+  - type: stdout
+    name: stdin_stdout2
+    entryPoint: x.py
+    inputAnswers:
+    - '123'
+    tests:
+    - qualification: contains
+      name: stdout
+      pattern: 123 plus 1 ist 124
+  - type: stdout
+    name: stdin_stdout2
+    entryPoint: x.py
+    inputAnswers:
+    - '123'
+    tests:
+    - qualification: endsWith
+      name: stdout
+      pattern: '123 plus 1 ist 124
+
+        '
+  - type: stdout
+    name: stdin_stdout2
+    entryPoint: x.py
+    inputAnswers:
+    - '123'
+    tests:
+    - qualification: matches
+      name: stdout
+      pattern: 'Gib "123" ein und drücke enter: 123 plus 1 ist 124
+
+        '
